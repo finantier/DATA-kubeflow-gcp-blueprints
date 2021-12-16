@@ -18,13 +18,13 @@ metadata:
   clusterName: "PROJECT/LOCATION/KUBEFLOW-NAME" # kpt-set: ${gcloud.core.project}/${location}/${name}
   name: KUBEFLOW-NAME-cpu-pool-v1 # kpt-set: ${name}-cpu-pool-v1
 spec:
-  initialNodeCount: 2
+  initialNodeCount: 1
   autoscaling:
-    minNodeCount: 2
-    maxNodeCount: 8
+    minNodeCount: 1
+    maxNodeCount: 4
   nodeConfig:
-    machineType: e2-standard-8
-    minCpuPlatform: 'Intel Broadwell'
+    machineType: e2-standard-2
+    minCpuPlatform: "Intel Broadwell"
     metadata:
       disable-legacy-endpoints: "true"
     serviceAccountRef:

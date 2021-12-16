@@ -30,18 +30,18 @@ spec:
     enabled: true
     autoProvisioningDefaults:
       oauthScopes:
-      - https://www.googleapis.com/auth/logging.write
-      - https://www.googleapis.com/auth/monitoring
-      - https://www.googleapis.com/auth/devstorage.read_only
+        - https://www.googleapis.com/auth/logging.write
+        - https://www.googleapis.com/auth/monitoring
+        - https://www.googleapis.com/auth/devstorage.read_only
       serviceAccountRef:
         name: KUBEFLOW-NAME-vm # kpt-set: ${name}-vm
     resourceLimits:
-    - resourceType: cpu
-      maximum: 128
-    - resourceType: memory
-      maximum: 2000
-    - resourceType: nvidia-tesla-k80
-      maximum: 16
+      - resourceType: cpu
+        maximum: 128
+      - resourceType: memory
+        maximum: 2000
+      - resourceType: nvidia-tesla-k80
+        maximum: 16
   releaseChannel:
     # Per https://github.com/GoogleCloudPlatform/k8s-config-connector/issues/194
     # use upper case for the channels
@@ -49,7 +49,7 @@ spec:
   # Master version controls the kubernetes API version.
   # Future upgrade of master version might break Kubeflow deployment.
   # At the time of writing, STABLE release channel is using 1.17.
-  # knative requires Kubernetes version to be 1.18+. Therefore we set 
+  # knative requires Kubernetes version to be 1.18+. Therefore we set
   # master version below. We need to make sure reviewing this for future release.
   # Autopilot mode will enforce automatic node upgrade.
   # minMasterVersion: '1.18'
@@ -59,13 +59,13 @@ spec:
   loggingService: logging.googleapis.com/kubernetes
   monitoringService: monitoring.googleapis.com/kubernetes
   nodeConfig:
-    machineType: e2-standard-8
+    machineType: e2-standard-2 # change this to reduce cost
     metadata:
       disable-legacy-endpoints: "true"
     oauthScopes:
-    - https://www.googleapis.com/auth/logging.write
-    - https://www.googleapis.com/auth/monitoring
-    - https://www.googleapis.com/auth/devstorage.read_only
+      - https://www.googleapis.com/auth/logging.write
+      - https://www.googleapis.com/auth/monitoring
+      - https://www.googleapis.com/auth/devstorage.read_only
     serviceAccountRef:
       name: KUBEFLOW-NAME-vm # kpt-set: ${name}-vm
     workloadMetadataConfig:
