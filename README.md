@@ -22,6 +22,7 @@ For more information about packages refer to the [kpt packages guide](https://go
 1. Use the [management](./management/README.md) blueprint to spin up a management
    cluster
 1. Use the [kubeflow](./kubeflow/README.md) blueprint to create a Kubeflow deployment.
+2. Use the [users](./users/add_users.py) script to give users access to the Kubeflow UI.
 
 ## Development
 
